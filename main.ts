@@ -1,7 +1,7 @@
 import { Hono } from "https://deno.land/x/hono@v4.0.8/mod.ts";
 import { cors, logger } from "https://deno.land/x/hono@v4.0.8/middleware.ts";
-import { JsonObjectResponse } from "./types/index.ts";
-import { CORSOptions } from "./types/index.ts";
+import { JsonObjectResponse } from "./types/index.d.ts";
+import { CORSOptions } from "./types/index.d.ts";
 import emailRoutes from "./routes/email.routes.ts";
 
 const app = new Hono().basePath("/api");
