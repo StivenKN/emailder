@@ -1,2 +1,3 @@
-.env.local
 deno.lock
+.env
+*.env
