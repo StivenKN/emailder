@@ -21,7 +21,7 @@ app.get(
 
 app.post("/", async (c) => {
   const { subject, to, html, text } = await c.req.json<TEmailRequest>();
-  const from = env["EMAIL_USER"];
+  const from = Deno.env.get("EMAIL_USER") ?? env["EMAIL_USER"];
   try {
     await mail.sendMail({
       from,
@@ -35,7 +35,8 @@ app.post("/", async (c) => {
       errors: null,
       message: "Ok",
     }, 200);
-  } catch (_error) {
+  } catch (error) {
+    console.error(error);
     throw new HTTPException(500, { message: "INTERNAL_SERVER_ERR" });
   }
 });
