@@ -6,8 +6,6 @@ const auth = {
   pass: Deno.env.get("EMAIL_PASSWORD") ?? env["EMAIL_PASSWORD"],
 };
 
-console.log(auth);
-
 const mail = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
